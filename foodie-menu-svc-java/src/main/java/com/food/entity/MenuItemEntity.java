@@ -25,6 +25,9 @@ public class MenuItemEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id ")
 	private long itemId;
+	@NotNull
+	@Column(name = "restaurant_id", nullable = false)
+	private long restaurantId;
 	@Column(name = "item_name")
 	@NotNull
 	private String itemName;
@@ -49,14 +52,14 @@ public class MenuItemEntity {
 	private int preparationTime;
 	@Column(name = "rating")
 	private Double  rating;
+	@NotNull
+	@Column(name = "category_id")
+	private int categoryId;
+	@NotNull
+	@Column(name = "subcategory_id")
+	private int subCategoryId;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "subcategory_id")
-	private SubCategoryEntity subCategoryEntity;
 	
-	public long getItemId() {
-		return itemId;
-	}
 	public void setItemId(long itemId) {
 		this.itemId = itemId;
 	}
@@ -127,12 +130,28 @@ public class MenuItemEntity {
 	public void setStatus(StatusEnum status) {
 		this.status = status;
 	}
-	public SubCategoryEntity getSubCategoryEntity() {
-		return subCategoryEntity;
+	public long getRestaurantId() {
+		return restaurantId;
 	}
-	public void setSubCategoryEntity(SubCategoryEntity subCategoryEntity) {
-		this.subCategoryEntity = subCategoryEntity;
+	public void setRestaurantId(long restaurantId) {
+		this.restaurantId = restaurantId;
 	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+	public int getSubCategoryId() {
+		return subCategoryId;
+	}
+	public void setSubCategoryId(int subCategoryId) {
+		this.subCategoryId = subCategoryId;
+	}
+	public long getItemId() {
+		return itemId;
+	}
+	
 	
 	
 	

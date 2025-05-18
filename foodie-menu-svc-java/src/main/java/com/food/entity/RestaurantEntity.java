@@ -1,16 +1,12 @@
 package com.food.entity;
 
-import java.util.List;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -43,8 +39,8 @@ public class RestaurantEntity {
 	private String email;
 	
 	
-	@OneToMany(mappedBy = "restaurantEntity", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<MenuCategoryEntity> menuCategories;
+//	@OneToMany(mappedBy = "restaurantEntity", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//	private List<MenuCategoryEntity> menuCategories;
 
 
 	public long getRestaurantId() {
@@ -122,19 +118,19 @@ public class RestaurantEntity {
 
 
 
-
-	public List<MenuCategoryEntity> getMenuCategories() {
-		return menuCategories;
-	}
-
-
-	public void setMenuCategories(List<MenuCategoryEntity> menuCategories) {
-		this.menuCategories = menuCategories;
-	}
+//
+//	public List<MenuCategoryEntity> getMenuCategories() {
+//		return menuCategories;
+//	}
+//
+//
+//	public void setMenuCategories(List<MenuCategoryEntity> menuCategories) {
+//		this.menuCategories = menuCategories;
+//	}
 
 
 	public RestaurantEntity(@NotNull long restaurantId, String restaurantName, String cuisineType, String address,
-			String phoneNumber, String restaurantUrl, String email, List<MenuCategoryEntity> menuCategories) {
+			String phoneNumber, String restaurantUrl, String email) {
 		super();
 		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;
@@ -143,7 +139,7 @@ public class RestaurantEntity {
 		this.phoneNumber = phoneNumber;
 		this.restaurantUrl = restaurantUrl;
 		this.email = email;
-		this.menuCategories = menuCategories;
+//		this.menuCategories = menuCategories;
 	}
 
 

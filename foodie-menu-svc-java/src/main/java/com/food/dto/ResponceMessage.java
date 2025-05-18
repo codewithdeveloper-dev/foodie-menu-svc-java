@@ -1,6 +1,6 @@
 package com.food.dto;
 
-public class RestaurantResponce {
+public class ResponceMessage {
 	
 	private String message;
 	private String error;
